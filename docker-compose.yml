@@ -1,7 +1,13 @@
 version: '3'
 services:
+  dockerhubexporter:
+    image: infinityworks/docker-hub-exporter
+    ports:
+    - 9170:9170
+    environment:
+    - ORGS=cdemi
   prometheus:
-    image: prom/prometheus:latest
+    build: prometheus/
     ports:
     - 9090:9090
   grafana:
